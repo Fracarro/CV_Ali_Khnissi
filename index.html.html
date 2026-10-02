@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Interactif - Ali KHNISSI</title>
+    <!-- Librairie pour générer le PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ZONE GAUCHE : MENU (Non imprimée dans le PDF) -->
+    <nav class="sidebar">
+        <div class="profile-section">
+            <img src="photo.jpg" alt="Ali Khnissi" class="profile-pic">
+            <h1>Ali KHNISSI</h1>
+            <p class="subtitle">Spécialiste Qualité Produit</p>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#experiences">Expériences</a></li>
+            <li><a href="#formation">Formation</a></li>
+        </ul>
+
+        <div class="contact-info">
+            <p>📍 31400 Toulouse 52</p>
+            <p>📞 +33 7 56 92 93 32</p>
+            <p>✉️ ali.khnici@gmail.com</p>
+        </div>
+
+        <button onclick="genererPDF()" class="btn-download">📄 Télécharger CV (PDF)</button>
+    </nav>
+
+    <!-- ZONE DROITE : CONTENU DYNAMIQUE (Source du PDF) -->
+    <main class="content">
+        <!-- C'est cette div spécifique qui sera transformée en PDF -->
+        <div id="cv-pour-pdf" class="pdf-container">
+            
+            <section id="profil" class="cv-section">
+                <h2>Synthèse Professionnelle</h2>
+                <p>Spécialiste de la qualité produit dans des environnements industriels exigeants. Maîtrise des normes ISO et des outils qualité (QRQC, 8D, AMDEC). Mon approche repose sur trois piliers : Qualité Système pour la conformité, Qualité Produit pour la fiabilité, et RSE pour une démarche responsable.</p>
+            </section>
+
+            <section id="competences" class="cv-section">
+                <h2>Compétences Clés</h2>
+                <ul class="skills-list">
+                    <li><strong>Méthodes Qualité :</strong> QRQC terrain, Ishikawa, 5 Why, 8D, CAPA, AMDEC process.</li>
+                    <li><strong>Management :</strong> Animation d'équipes, gestion des non-conformités, suivi KPI.</li>
+                    <li><strong>Conformité :</strong> Exigences normatives (ISO 9001), audits internes.</li>
+                </ul>
+            </section>
+
+            <section id="experiences" class="cv-section">
+                <h2>Expérience Professionnelle</h2>
+                
+                <div class="job">
+                    <h3>CHEF D'ÉQUIPE QUALITÉ</h3>
+                    <p class="company">Fracarro Radio Fréquence Industrie | déc. 2012 - Actuel</p>
+                    <ul>
+                        <li>Animation de la qualité terrain, implication des opérateurs (QRQC).</li>
+                        <li>Analyse des causes racines et mise en place d'actions correctives (8D, CAPA).</li>
+                        <li>Maintien du système ISO 9001 et réalisation d'audits internes.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3>CHEF D'ÉQUIPE PRODUCTION</h3>
+                    <p class="company">Marquardt Tunisie (Automobile) | déc. 2011 - nov. 2012</p>
+                    <ul>
+                        <li>Management d'équipes et organisation selon les objectifs de qualité, délais et volumes.</li>
+                        <li>Application stricte des standards automobiles et traitement des écarts terrain.</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <h3>CHEF D'ÉQUIPE PRODUCTION</h3>
+                    <p class="company">Fracarro Tunisie | juin 2009 - nov. 2011</p>
+                    <ul>
+                        <li>Pilotage des lignes de production et coordination production/maintenance/qualité.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="formation" class="cv-section">
+                <h2>Formation</h2>
+                <div class="job">
+                    <h3>TECHNICIEN SUPÉRIEUR - TECHNIQUES DE PRODUCTION INDUSTRIEL</h3>
+                    <p class="company">Tunis | juin 2007</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- SCRIPT DE GÉNÉRATION DU PDF -->
+    <script>
+        function genererPDF() {
+            const element = document.getElementById('cv-pour-pdf');
+            const bouton = document.querySelector('.btn-download');
+            
+            // Modifier le texte du bouton pendant le chargement
+            bouton.innerText = "⏳ Génération en cours...";
+            
+            var opt = {
+              margin:       15, // Marges en millimètres
+              filename:     'CV_Ali_Khnissi.pdf',
+              image:        { type: 'jpeg', quality: 1 },
+              html2canvas:  { scale: 2, useCORS: true },
+              jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Remettre le texte original une fois terminé
+                bouton.innerText = "📄 Télécharger CV (PDF)";
+            });
+        }
+    </script>
+</body>
+</html>

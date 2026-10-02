@@ -1,0 +1,163 @@
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* --- ZONE GAUCHE : LE MENU LATÉRAL --- */
+.sidebar {
+    width: 300px;
+    background-color: #1a252f;
+    color: white;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3498db;
+    margin-bottom: 15px;
+}
+
+.profile-section h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #3498db;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    margin-bottom: auto;
+}
+
+.nav-links li {
+    margin-bottom: 15px;
+}
+
+.nav-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+.contact-info {
+    font-size: 13px;
+    color: #95a5a6;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.btn-download {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+.btn-download:hover {
+    background-color: #2980b9;
+}
+
+/* --- ZONE DROITE : LE CONTENU --- */
+.content {
+    margin-left: 300px; /* Décale le contenu à droite du menu */
+    padding: 40px;
+    width: calc(100% - 300px);
+}
+
+/* Le conteneur spécifique qui deviendra le PDF */
+.pdf-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cv-section {
+    margin-bottom: 35px;
+}
+
+.cv-section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.cv-section p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.skills-list li {
+    margin-left: 20px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.job {
+    margin-bottom: 25px;
+}
+
+.job h3 {
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.company {
+    color: #7f8c8d !important;
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.job ul {
+    margin-left: 20px;
+    color: #555;
+}
+
+.job li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
